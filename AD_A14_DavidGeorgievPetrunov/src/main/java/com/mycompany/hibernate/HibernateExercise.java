@@ -23,13 +23,13 @@ public class HibernateExercise {
         factory = cfg.buildSessionFactory();
 
         // Add
-        insertStudent("Antonio", "Martinez", "antonio@email.com", "971112312");
-        insertStudent("Diego", "Martinez", "diego@email.com", "971888828");
-        insertStudent("Lucas", "Rodriguez", "lucas@email.com", "971822827");
-        insertStudent("Manolo", "Iglesias", "manolo@email.com", "971888821");
+        insertStudent("Antonio", "Martinez",16, "antonio@email.com", "971112312");
+        insertStudent("Diego", "Martinez",17, "diego@email.com", "971888828");
+        insertStudent("Lucas", "Rodriguez",18, "lucas@email.com", "971822827");
+        insertStudent("Manolo", "Iglesias",19, "manolo@email.com", "971888821");
 
         // Update
-        updateStudent(1, "Change name", "Martinez", "antonio@email.com", "971112312");
+        updateStudent(1, "Change name", "Martinez",16, "antonio@email.com", "971112312");
 
         // Delete
         deleteStudent(2);
@@ -48,7 +48,7 @@ public class HibernateExercise {
     }
 
     // Insert a student
-    private static void insertStudent(String nombre, String lastname, String email, String phone) {
+    private static void insertStudent(String nombre, String lastname, int age, String email, String phone) {
         Session session = null;
         try {
             session = factory.openSession();
@@ -60,6 +60,7 @@ public class HibernateExercise {
                 Student newStudent = new Student();
                 newStudent.setName(nombre);
                 newStudent.setLastname(lastname);
+                newStudent.setAge(age);
                 newStudent.setEmail(email);
                 newStudent.setPhone(phone);
 
@@ -81,7 +82,7 @@ public class HibernateExercise {
         }
     }
 
-    private static void updateStudent(int id, String nombre, String lastname, String email, String phone) {
+    private static void updateStudent(int id, String nombre, String lastname, int age, String email, String phone) {
         Session session = null;
         try {
             session = factory.openSession();
@@ -96,6 +97,7 @@ public class HibernateExercise {
 
                     existingStudent.setName(nombre);
                     existingStudent.setLastname(lastname);
+                    existingStudent.setAge(age);
                     existingStudent.setEmail(email);
                     existingStudent.setPhone(phone);
 

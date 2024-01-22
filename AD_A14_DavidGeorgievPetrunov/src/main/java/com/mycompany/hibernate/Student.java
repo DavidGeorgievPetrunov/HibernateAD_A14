@@ -3,7 +3,16 @@ package hibernate;
 public class Student {
     private int id;
     private String name;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
     private String lastname;
+    private int age;
     private String email;
     private String phone;
 
